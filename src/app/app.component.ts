@@ -18,5 +18,23 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
+//   getStatus() {
+//     return this.facebook.getLoginStatus().then(
+//         (response) => {
+//             alert('getstatus success ' + JSON.stringify(response));
+//             if (response.status === 'connected') {
+//                 this.navCtrl.push(HomePage);
+//             } else {
+//                 this.navCtrl.push(ChatPage);
+//             }
+//         },
+//         (error) => {
+//             console.log('error: ', error);
+//             alert('getstatus error ' + JSON.stringify(error));
+//         }
+//     )
+// }
+  
 }
 

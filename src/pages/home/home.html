@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Just MEKS
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding>  
+  
+    
+  <button *ngIf="!isAuth" ion-button full (click)="login()">
+    Login with Facebook
+  </button>
+
+  <ion-card *ngIf="isAuth">
+    <button ion-button full (click)="navigateToTodoList()">
+      Todo List
+    </button>
+    <button ion-button full (click)="toGroupChat(userData.first_name)">
+      Group chat
+    </button>
+    <button ion-button full color="danger" (click)="logout()">
+      Logout
+    </button>
+    <ion-card-header>
+      {{userData.username}}
+    </ion-card-header>
+    <img [src]="userData.picture" />
+    <ion-card-content>
+      <p>Email: {{ userData.email }}</p>
+      <p>First Name: {{ userData.first_name }}</p>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

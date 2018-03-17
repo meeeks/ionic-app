@@ -1,0 +1,44 @@
+page-chat {
+
+    .message-left {
+        clear: both;
+        .inner-message {
+            background: green;
+        }    
+    }
+
+    .message-right {
+        float: right;
+        clear: both;
+
+        .inner-message {
+            background: #5959FF;
+        }    
+    }
+    
+    .inner-message {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        color: #fff;
+        border-radius: 4px;
+    }
+
+    .footer-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+            .text-element {
+                padding-left: 5px;
+            }
+        
+            .send-button {
+                margin: 0;
+                border-radius: 0;
+            }
+        
+    }
+}
+

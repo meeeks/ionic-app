@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Group Chat</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngFor="let item of groupChatRef$ | async">
+    <div [class]="messageItem.author === item.author ? 'message-right' : 'message-left'">
+      <div class="inner-message">
+        <div class="author">{{item.author}}</div>
+        <div class="message">{{item.message}}</div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <div class="footer-wrapper">
+        <ion-input class="text-element" type="text" [(ngModel)]="messageItem.message"></ion-input>
+        <button class="send-button" ion-button icon-only (click)="sendMessage(messageItem)">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+  
+</ion-content>

@@ -13,11 +13,17 @@ import { TodoListPage } from '../pages/todo-list/todo-list';
 import { TodoFormPage } from '../pages/todo-form/todo-form';
 import { EditTodoItemPage } from '../pages/edit-todo-item/edit-todo-item';
 import { ChatPage } from '../pages/chat/chat';
+import { ItemListPage } from '../pages/item-list/item-list';
 
 import { TodoListService } from '../services/todo-list/todo-list.service';
 import { ToastService } from '../services/toast/toast.service';
 import { ChatService } from '../services/chat/chat.service';
 import { AuthService } from '../services/auth/auth.service';
+import { ItemListService } from '../services/item-list/item-list.service';
+
+import { ExpandableHeaderComponent } from '../components/expandable-header/expandable-header';
+// import { ComponentsModule } from '../components/components.module';
+// import { ItemComponent } from '../components/item/item';
 
 import { Facebook } from '@ionic-native/facebook';
 
@@ -35,11 +41,13 @@ var config = {
 @NgModule({
   declarations: [
     MyApp,
+    ExpandableHeaderComponent,
     HomePage,
     TodoListPage,
     TodoFormPage,
     EditTodoItemPage,
-    ChatPage
+    ChatPage,
+    ItemListPage
   ],
   imports: [
     BrowserModule,
@@ -50,11 +58,13 @@ var config = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ExpandableHeaderComponent,
     HomePage,
     TodoListPage,
     TodoFormPage,
     EditTodoItemPage,
-    ChatPage
+    ChatPage,
+    ItemListPage
   ],
   providers: [
     StatusBar,
@@ -64,7 +74,8 @@ var config = {
     TodoListService,
     ToastService,
     ChatService,
-    AuthService
+    AuthService,
+    ItemListService
   ]
 })
 export class AppModule {}

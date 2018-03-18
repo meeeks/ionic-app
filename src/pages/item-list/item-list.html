@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ItemList</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!-- *ngFor="let item of itemListRef$ | async" -->
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail item-start>
+          <img [src]="item.imgUrl"/>
+        </ion-thumbnail>
+        <h2>Name: {{item.id}}</h2>
+        <h3>Type: {{item.type}}</h3>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

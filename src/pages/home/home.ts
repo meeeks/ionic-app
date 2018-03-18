@@ -3,7 +3,9 @@ import { NavController } from 'ionic-angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { TodoListPage } from '../../pages/todo-list/todo-list';
 import { ChatPage } from '../../pages/chat/chat';
+import { ItemListPage } from '../../pages/item-list/item-list';
 import { AuthService } from '../../services/auth/auth.service';
+import { ExpandableHeaderComponent } from '../../components/expandable-header/expandable-header';
 
 @Component({
   selector: 'page-home',
@@ -17,20 +19,20 @@ export class HomePage {
   constructor(public navCtrl: NavController,
              private facebook: Facebook,
              private auth: AuthService) {
-              this.getAuthStatus();
+              // this.getAuthStatus();
   }
 
-  getAuthStatus() {
-    this.auth.getStatus().then(
-      (response) => {
-          if (response.status === 'connected') {
-            this.isAuth = true;
-          } else {
-            this.isAuth = false;
-          }
-      }
-    )
-  }
+  // getAuthStatus() {
+  //   this.auth.getStatus().then(
+  //     (response) => {
+  //         if (response.status === 'connected') {
+  //           this.isAuth = true;
+  //         } else {
+  //           this.isAuth = false;
+  //         }
+  //     }
+  //   )
+  // }
   
   navigateToTodoList() {
     this.navCtrl.push(TodoListPage);
@@ -38,6 +40,10 @@ export class HomePage {
   
   toGroupChat(username) {
     this.navCtrl.push(ChatPage, { username });
+  }
+
+  toItemList() {
+    this.navCtrl.push(ItemListPage);
   }
 
   login() {
@@ -54,7 +60,7 @@ export class HomePage {
               picture: profile['picture_large']['data']['url'],
               username: profile['name']
             }
-            this.getAuthStatus();
+            // this.getAuthStatus();
           }
         )
       }
@@ -64,7 +70,7 @@ export class HomePage {
   logout() {
     this.facebook.logout().then(
       (success) => {
-        this.getAuthStatus();
+        // this.getAuthStatus();
       },
       (error) => {
         console.log('error: ', error);
